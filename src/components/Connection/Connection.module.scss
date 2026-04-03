@@ -1,0 +1,58 @@
+.root {
+  width: 100%;
+  max-width: 850px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #292222;
+  leading-trim: none;
+}
+
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.cell {
+  padding: 10px 0;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #292222;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border);
+}
+
+.cellCheck {
+  width: 40px;
+  padding-left: 10px;
+  box-sizing: content-box;
+}
+
+.table tbody tr:first-child .cell {
+  border-top: 1px solid var(--border);
+}
+
+.table tbody tr:first-child .cell:not(.cellCheck) {
+  font-weight: 700;
+}
+
+.checkbox {
+  display: block;
+}

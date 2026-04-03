@@ -1,0 +1,78 @@
+.root {
+  width: 100%;
+  max-width: 850px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #292222;
+  leading-trim: none;
+}
+
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  thead th {
+    padding: 10px 16px 10px 0;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #292222;
+    text-align: left;
+    vertical-align: bottom;
+    border-bottom: 1px solid var(--border);
+  }
+
+  tbody td {
+    padding: 10px 16px 10px 0;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #292222;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border);
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 42%;
+    padding-left: 10px;
+  }
+
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 33%;
+  }
+
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 25%;
+  }
+}
+
+.checkbox {
+  display: block;
+}

@@ -1,0 +1,183 @@
+/* Внешний — shell, внутренний — panel (нельзя max-width на том же узле, что и page-shell) */
+.panel {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 55px;
+}
+
+/* ui-kit Card даёт border-radius:3px — перебиваем */
+.card[class*='_card_'] {
+  width: 500px;
+  max-width: 100%;
+  min-height: 350px;
+  padding: 0 50px 20px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background: #fbfbfb;
+  border: 1px solid #bcbcbc;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  margin-bottom: 20px;
+  padding-top: 4px;
+  text-align: center;
+}
+
+.error {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  background: rgba(185, 28, 28, 0.08);
+  color: #b91c1c;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.logoImg {
+  width: 122px;
+  height: 18px;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.card .brand h1.heading {
+  margin: 0;
+  padding-top: 0;
+  min-height: 20px;
+  max-width: 500px;
+  color: #292222;
+  font-family: Roboto, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.171875;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  min-height: 0;
+  width: 400px;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-align: left;
+  --login-form-stack-gap: 4px;
+}
+
+.field + .field {
+  margin-top: var(--login-form-stack-gap);
+}
+
+.field {
+  width: 100%;
+}
+
+.field [class*='_label_'] {
+  color: #292222;
+}
+
+.fieldRequired [class*='_label_']::after {
+  content: '*';
+  color: #dd1e26;
+  margin-left: 2px;
+  font-weight: 600;
+}
+
+.inputShell {
+  height: 40px;
+  min-height: 40px;
+  box-sizing: border-box;
+}
+
+.inputShell[class*='_inputWrapper_'] {
+  border-color: #bcbcbc;
+}
+
+.fieldInvalid .inputShell[class*='_inputWrapper_'],
+.fieldInvalid .inputShell[class*='_inputWrapper_']:focus-within {
+  border-color: #dd1e26;
+}
+
+.inputShell input {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.input {
+  width: 100%;
+}
+
+.field [class*='_error_'] {
+  color: #dd1e26;
+  font-size: 14px;
+  line-height: 1.171875;
+}
+
+.submitWrap {
+  margin-top: calc(var(--login-form-stack-gap) + 20px);
+  width: 100%;
+}
+
+.submit {
+  width: 100%;
+  height: 30px;
+  min-height: 30px;
+  box-sizing: border-box;
+}
+
+.footer {
+  margin: 26px 0 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.footerLink {
+  font-size: 16px;
+  line-height: 1.171875;
+  color: #292222;
+  text-decoration: none;
+
+  &:hover {
+    color: #292222;
+  }
+}
+
+.footerLinkLeft {
+  flex: 1 1 0;
+  min-width: 0;
+  display: block;
+  text-align: center;
+  max-width: max-content;
+  margin-right: auto;
+}
+
+.footerLinkRight {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: max-content;
+  margin-left: auto;
+  margin-right: 20px;
+}

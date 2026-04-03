@@ -1,0 +1,37 @@
+.description {
+  width: 100%;
+  max-width: 850px;
+  box-sizing: border-box;
+  text-align: left;
+
+  label {
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #292222;
+    leading-trim: none;
+  }
+
+  > div {
+    gap: 8px;
+  }
+}
+
+.textarea {
+  width: 100%;
+  min-height: 75px;
+  height: 75px;
+  box-sizing: border-box;
+  resize: none;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+  leading-trim: none;
+}

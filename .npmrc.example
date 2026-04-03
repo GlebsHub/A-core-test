@@ -1,0 +1,3 @@
+# Скопируйте в `.npmrc` и подставьте токен (см. тестовое задание Alphacore).
+@alphacore:registry=https://gitlab.alphacore.ru/api/v4/projects/15/packages/npm/
+//gitlab.alphacore.ru/api/v4/projects/15/packages/npm/:_authToken=${NPM_TOKEN}

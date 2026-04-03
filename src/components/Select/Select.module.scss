@@ -1,0 +1,39 @@
+.root {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 180px;
+  min-width: 180px;
+  max-width: 180px;
+  flex-shrink: 0;
+}
+
+.triggerText {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--text-h);
+  pointer-events: none;
+}
+
+.root [role='combobox'] > *:first-child {
+  opacity: 0 !important;
+}
+
+/* макет: 180×30, вариант fill из ui-kit — подгон высоты */
+.control[class*='_select_'] {
+  width: 180px;
+  min-width: 180px;
+  max-width: 180px;
+  height: 30px !important;
+  min-height: 30px;
+  box-sizing: border-box;
+}

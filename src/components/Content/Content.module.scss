@@ -1,0 +1,35 @@
+.content {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: clamp(1rem, 4vw, 2rem);
+
+  &.homePage {
+    align-items: stretch;
+    justify-content: flex-start;
+
+    .contentBody {
+      flex-direction: row;
+      align-items: stretch;
+      justify-content: flex-start;
+      gap: 90px;
+      max-width: 1280px;
+    }
+  }
+}
+
+.contentBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
