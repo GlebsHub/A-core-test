@@ -1,42 +1,34 @@
 # a-core
 
-React + Vite + TanStack Router, UI — `@alphacore/ui-kit`.
+**[➡️ Посмотреть демо](https://glebshub.github.io/A-core)**
 
-## Локально
+Клиент на **React** + **Vite** + **TanStack Router** с UI **@alphacore/ui-kit**: вход по GraphQL, дерево функциональных классов, карточка объекта (описание, характеристики, связи).
+
+Просмотр — **по ссылке выше**; локально поднимать не обязательно.
+
+---
+
+<details>
+<summary>Локальный запуск</summary>
 
 ```bash
 npm install
 npm run dev
 ```
 
-GraphQL в dev идёт через прокси Vite (`/graphql` → см. `vite.config.ts`).
+GraphQL в dev: прокси `/graphql` → `vite.config.ts`.
 
-## Демо на GitHub Pages
+</details>
 
-После пуша в `main` (или ручного запуска workflow **Deploy to GitHub Pages**) статика публикуется на:
+<details>
+<summary>Деплой на GitHub Pages (для мейнтейнеров)</summary>
 
-`https://GlebsHub.github.io/<имя-репозитория>/`
+После пуша в `main` workflow **Deploy to GitHub Pages** публикует сборку на `https://glebshub.github.io/<имя-репозитория>/` (имя репо = сегмент пути).
 
-Включите Pages: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+**Settings → Pages → Source: GitHub Actions.**
 
-### Секрет для API (опционально)
+Опционально secret **`VITE_GRAPHQL_URL`** (HTTPS), если нужен свой GraphQL при сборке. Иначе — дефолт из `src/graphql/client.ts`.
 
-Если нужен свой GraphQL URL при сборке (например HTTPS-эндпоинт), в репозитории добавьте secret **`VITE_GRAPHQL_URL`**. Иначе в проде используется дефолт из `src/graphql/client.ts`.
+С **https://** страницы нельзя вызывать **http://** API (mixed content); для публичного демо нужен HTTPS у API или прокси.
 
-**Важно:** страница на `https://` не может вызывать `http://` API (mixed content). Для публичного демо нужен HTTPS у бэкенда или прокси.
-
-## Создать репозиторий и залить проект
-
-1. На GitHub (аккаунт **GlebsHub**): **New repository** — имя, например `a-core-test`, без README (или с — тогда при первом пуше понадобится `pull --rebase`).
-2. В каталоге проекта:
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/GlebsHub/<имя-репозитория>.git
-git push -u origin main
-```
-
-С [GitHub CLI](https://cli.github.com/): `gh repo create GlebsHub/a-core-test --private --source=. --remote=origin --push` (после `gh auth login`).
+</details>
