@@ -37,7 +37,11 @@ const loginRoute = createRoute({
 
 const routeTree = rootRoute.addChildren([indexRoute, loginRoute])
 
-export const router = createRouter({ routeTree })
+export const router = createRouter({
+  routeTree,
+  // GitHub Pages: app lives under /A-core-test/ (see vite.config base); must match or routes never match.
+  basepath: import.meta.env.BASE_URL,
+})
 
 declare module '@tanstack/react-router' {
   interface Register {
