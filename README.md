@@ -1,5 +1,5 @@
 # a-core
-[➡️ Посмотреть демо] (https://glebshub.github.io/Aiti-Guru)
+[➡️ Посмотреть демо] (https://glebshub.github.io/A-core)
 
 Клиент на **React** + **Vite** + **TanStack Router** с UI **@alphacore/ui-kit**: вход по GraphQL, дерево функциональных классов, карточка объекта (описание, характеристики, связи).
 
