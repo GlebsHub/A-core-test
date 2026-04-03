@@ -6,16 +6,15 @@ import react from '@vitejs/plugin-react'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/A-core-test/' : '/',
   resolve: {
     alias: {
-      // Иначе в кэше optimizeDeps мог оказаться react-window v2 без FixedSizeList
       'react-window': path.resolve(__dirname, 'node_modules/react-window'),
     },
   },
   optimizeDeps: {
     include: ['react-window'],
-    /** Иначе Vite кладёт ui-kit в `.vite/deps` и игнорирует правки в `node_modules/.../Tree.es.js`. */
     exclude: ['@alphacore/ui-kit'],
   },
   plugins: [react()],
@@ -35,4 +34,4 @@ export default defineConfig({
       },
     },
   },
-})
+}))
