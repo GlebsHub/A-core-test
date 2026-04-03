@@ -11,6 +11,11 @@ export default defineConfig(({ command }) => ({
   resolve: {
     alias: {
       'react-window': path.resolve(__dirname, 'node_modules/react-window'),
+      // ui-kit не экспортирует theme в package.json — только прямой путь к файлу
+      'alphacore-ui-kit-theme.css': path.resolve(
+        __dirname,
+        'node_modules/@alphacore/ui-kit/dist/styles/index.css',
+      ),
     },
   },
   optimizeDeps: {

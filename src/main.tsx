@@ -1,6 +1,7 @@
 import { QueryClientProvider } from '@tanstack/react-query'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import 'alphacore-ui-kit-theme.css'
 import './styles/global.scss'
 import App from './App'
 import { queryClient } from './utils/queryClient'

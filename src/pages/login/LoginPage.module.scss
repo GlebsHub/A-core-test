@@ -100,9 +100,12 @@
 }
 
 .inputShell {
+  width: 100%;
   height: 40px;
   min-height: 40px;
   box-sizing: border-box;
+  /* как SearchBar: иначе во flex-row у input width:100% может дать 0 видимой ширины */
+  min-width: 0;
 }
 
 .inputShell[class*='_inputWrapper_'] {
@@ -115,6 +118,8 @@
 }
 
 .inputShell input {
+  flex: 1 1 auto;
+  min-width: 0;
   height: 100%;
   box-sizing: border-box;
 }
