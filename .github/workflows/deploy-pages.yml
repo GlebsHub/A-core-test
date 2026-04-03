@@ -1,3 +1,4 @@
+# Шаблон как в https://github.com/actions/starter-workflows (Astro / Pages)
 name: Deploy to GitHub Pages
 
 on:
@@ -10,19 +11,26 @@ permissions:
   pages: write
   id-token: write
 
+# Не отменять текущий деплой новым пушем — иначе сайт может так и не опубликоваться.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: "22"
+          node-version: "20"
           cache: npm
 
       - name: Install
@@ -30,24 +38,33 @@ jobs:
 
       - name: Build
         env:
-          # Имя репозитория = сегмент пути на GitHub Pages: /<repo>/
-          VITE_BASE_URL: /${{ github.event.repository.name }}/
           VITE_GRAPHQL_URL: ${{ secrets.VITE_GRAPHQL_URL }}
-        run: npm run build
+        run: |
+          BP="${{ steps.pages.outputs.base_path }}"
+          if [ -z "$BP" ]; then
+            export VITE_BASE_URL="/${{ github.event.repository.name }}/"
+          elif [ "$BP" = "/" ]; then
+            export VITE_BASE_URL="/"
+          else
+            export VITE_BASE_URL="${BP}/"
+          fi
+          npm run build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: deployment
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
